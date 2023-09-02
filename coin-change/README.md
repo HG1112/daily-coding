@@ -13,6 +13,6 @@ You can use standard American denominations, that is, 1¢, 5¢, 10¢, and 25¢.
 For example, given n = 16, return 3 since we can make it with a 10¢, a 5¢, and a 1¢.
 
 ### [Link to Leetcode](https://leetcode.com/problems/coin-change/description/)
-### [Solution in Java](Solution.java#L3)
-### [Solution in Python](solution.pu#L3)
+### [Solution in Java](Solution.java#L5)
+### [Solution in Python](solution.py#L3)
 
