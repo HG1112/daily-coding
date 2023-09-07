@@ -13,3 +13,10 @@ class Solution:
                         dp[i] = min(dp[i-coin]+1, dp[i])
         return dp[amount]
 
+    # Problem 2
+    def num_flips(self, n: int) -> int:
+        ans = 0
+        while n > 1:
+            ans += 1
+            n = n >> 1
+        return ans

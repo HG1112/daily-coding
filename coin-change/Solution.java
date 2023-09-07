@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 class Solution {
 
+  // Problem 1
   private int minCoins(int amount, int[] denomination) {
     int[] dp = new int[amount+1];
     Arrays.fill(dp, -1);
@@ -20,4 +21,13 @@ class Solution {
   }
 
 
+  // Problem 2
+  private int numFlips(int n) {
+    int ans = 0;
+    while (n > 1) {
+      ans++;
+      n = n >> 1;
+    }
+    return ans;
+  }
 }
