@@ -14,3 +14,18 @@ class Solution:
             stack.append(i)
         return ans
 
+    # Problem 2
+    def maxArea(self, height: List[int]) -> int:
+        lo = 0
+        hi = len(height) - 1
+
+        ans = 0
+        while lo < hi:
+            ans = max(ans, min(height[lo], height[hi]) * (hi - lo))
+            if height[lo] > height[hi]:
+                hi -= 1
+            else:
+                lo += 1
+        return ans
+
+
