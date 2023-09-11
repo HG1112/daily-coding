@@ -40,9 +40,9 @@ class Solution {
     while (l < r) {
       int sum = nums[l] + nums[r];
       if (sum > target)
-        r--;
+      r--;
       else if (sum < target)
-        l++;
+      l++;
       else {
         ans[0] = l+1;
         ans[1] = r+1;
@@ -51,5 +51,36 @@ class Solution {
     }
     return ans;
   }
+
+  // Problem 4
+  public List<List<Integer>> threeSum(int[] nums) {
+    int n = nums.length;
+    List<List<Integer>> ans = new LinkedList<>();
+    Arrays.sort(nums);
+    for (int i = 0; i < n; i++) {
+      int target = -nums[i];
+      int lo = i+1;
+      int hi = n-1;
+      while (lo < hi) {
+        int sum = nums[lo] + nums[hi];
+        if (sum > target) {
+          hi--;
+        } else if (sum < target) {
+          lo++;
+        } else {
+          ans.add(Arrays.asList(nums[i], nums[lo], nums[hi]));
+          while (lo + 1 < n && nums[lo+1] == nums[lo]) lo++;
+          lo++;
+          while (hi - 1 > lo && nums[hi - 1] == nums[hi]) hi--;
+          hi--;
+        }
+      }
+      while (i+1 < n && nums[i+1] == nums[i]) {
+        i++;
+      }
+    }
+    return ans;
+  }
+
 
 }

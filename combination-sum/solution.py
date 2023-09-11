@@ -39,3 +39,32 @@ class Solution:
                 break
         return ans
 
+
+    # Problem 4
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        n = len(nums)
+        nums.sort()
+        i = 0
+        while i < n:
+            target = -nums[i]
+            lo = i+1
+            hi = n-1
+            while lo < hi:
+                sum = nums[lo] + nums[hi]
+                if sum > target:
+                    hi-=1
+                elif sum < target:
+                    lo+=1
+                else:
+                    ans.append([nums[i], nums[lo], nums[hi]])
+                    while lo + 1 < n and nums[lo+1] == nums[lo]:
+                        lo += 1
+                    lo += 1
+                    while hi - 1 > lo and nums[hi-1] == nums[hi]:
+                        hi -= 1
+                    hi -= 1
+            while i+1 < n and nums[i+1] == nums[i]:
+                i += 1
+            i += 1
+        return ans
