@@ -1,4 +1,4 @@
-# Coin-change
+# Anagram
 
 ## Problem 1
 

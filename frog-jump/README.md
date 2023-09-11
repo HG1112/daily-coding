@@ -1,4 +1,4 @@
-# Coin-change
+# Jump 
 
 ## Problem 1
 

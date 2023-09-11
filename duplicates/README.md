@@ -1,4 +1,4 @@
-# Coin-change
+# Duplicates
 
 ## Problem 1
 
