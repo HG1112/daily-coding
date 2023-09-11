@@ -11,3 +11,15 @@ class Solution:
                     dp[i] += dp[i-num]
 
         return dp[target]
+
+    # Problem 2
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        idx = {}
+        for i in range(len(nums)):
+            find = target - nums[i]
+            if find in idx:
+                return [idx[find], i]
+            idx[nums[i]] = i
+        return []
+
+
