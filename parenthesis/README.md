@@ -16,3 +16,12 @@ An input string is valid if:
 ### [Solution in Python](solution.py#L3)
 
 
+## Problem 2
+
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+### [Link to Leetcode](https://leetcode.com/problems/generate-parentheses/)
+### [Solution in Java](Solution.java#L29)
+### [Solution in Python](solution.py#L23)
+
+
