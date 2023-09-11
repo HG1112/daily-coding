@@ -14,13 +14,10 @@ typically using all the original letters exactly once.
 
 ## Problem 2
 
-Good morning! Here's your coding interview problem for today.
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
 
-This problem was asked by Microsoft.
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
-You have n fair coins and you flip them all at the same time. Any that come up tails you set aside. The ones that come up heads you flip again. How many rounds do you expect to play before only one coin remains?
-
-Write a function that, given n, returns the number of rounds you'd expect to play until one coin remains.
-
-### [Solution in Java](Solution.java#L25)
-### [Solution in Python](solution.py#L3)
+### [Link to Leetcode](https://leetcode.com/problems/group-anagrams/)
+### [Solution in Java](Solution.java#L23)
+### [Solution in Python](solution.py#L21)
