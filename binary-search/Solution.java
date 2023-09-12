@@ -41,4 +41,24 @@ class Solution {
     }
     return total <= time;
   }
+
+  // Problem 3
+  public int findMin(int[] nums) {
+    int n = nums.length;
+    int lo = 0, hi = n-1;
+
+    if (nums[lo] < nums[hi])
+      return nums[lo];
+
+    while (lo <= hi) {
+      int mid = lo + ((hi - lo) >> 1);
+      if (nums[mid] > nums[hi])
+        lo = mid+1;
+      else if (nums[mid] < nums[hi])
+        hi = mid;
+      else 
+        return nums[mid];
+    }
+    return -1;
+  }
 }

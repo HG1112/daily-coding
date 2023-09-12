@@ -38,3 +38,23 @@ class Solution:
             else:
                 lo = mid+1
         return ans
+
+    # Problem 3
+    def findMin(self, nums: List[int]) -> int:
+        n = len(nums)
+        lo = 0
+        hi = n-1
+        if nums[lo] < nums[hi]:
+            return nums[lo]
+        
+        while lo <= hi:
+            mid = lo + ((hi - lo) >> 1)
+            if nums[mid] > nums[hi]:
+                lo = mid+1
+            elif nums[mid] < nums[hi]:
+                hi = mid
+            else:
+                return nums[mid]
+        return -1
+
+
