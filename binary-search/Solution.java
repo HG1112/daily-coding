@@ -17,4 +17,28 @@ class Solution {
     }
     return -1;
   }
+
+  // Problem 2
+  public int minEatingSpeed(int[] piles, int h) {
+    int lo = 1, hi = Integer.MAX_VALUE;
+    int ans = -1;
+    while (lo <= hi) {
+      int mid = lo + ((hi - lo) >> 1);
+      if (check(piles, mid, h)) {
+        ans = mid;
+        hi = mid-1;
+      } else {
+        lo = mid+1;
+      }
+    }
+    return ans;
+  }
+
+  private boolean check(int[] piles, int rate, int time) {
+    int total = 0;
+    for (int pile : piles) {
+      total += (pile / rate + (pile % rate != 0 ? 1 : 0));
+    }
+    return total <= time;
+  }
 }
