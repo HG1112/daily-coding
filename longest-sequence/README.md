@@ -10,3 +10,11 @@ You must write an algorithm that runs in O(n) time.
 ### [Solution in Java](Solution.java#L5)
 ### [Solution in Python](solution.py#L3)
 
+## Problem 2
+
+Given a string s, find the length of the longest substring without repeating characters.
+
+### [Link to Leetcode](https://leetcode.com/problems/longest-consecutive-sequence/)
+### [Solution in Java](Solution.java#L28)
+### [Solution in Python](solution.py#L20)
+
