@@ -44,4 +44,26 @@ class Solution {
     }
     return ans;
   }
+
+  // Problem 3
+  public int characterReplacement(String s, int k) {
+    int ans = 0;
+    int n = s.length();
+    for (int i = 0; i < 26; i++) {
+      char c = (char) (i + 'A');
+      int l = 0;
+      int count = 0;
+      for (int r = 0; r < n; r++) {
+        if (s.charAt(r) != c) {
+          while (count == k) {
+            if (s.charAt(l) != c) count--;
+            l++;
+          }
+          count++;
+        } 
+        ans = Math.max(ans, (r-l+1));
+      }
+    }
+    return ans;
+  }
 }
