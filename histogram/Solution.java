@@ -25,4 +25,21 @@ class Solution {
     return ans;
   }
 
+  // Problem 2
+  public int[] maxSlidingWindow(int[] nums, int k) {
+    int n = nums.length;
+    LinkedList<Integer> max = new LinkedList<>();
+    int[] ans = new int[n-k+1];
+    int i = 0;
+    for (int l = 0, r = 0; r < n; r++) {
+      while (!max.isEmpty() && nums[max.getLast()] < nums[r]) max.removeLast();
+      max.addLast(r);
+      if (r-l+1 == k) {
+        ans[i++] = nums[max.getFirst()];
+        if (max.getFirst() == l) max.removeFirst();
+        l++;
+      }
+    }
+    return ans;
+  }
 }
