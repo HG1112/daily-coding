@@ -32,4 +32,15 @@ class Solution:
         
         return ans.next
 
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        ans = None
+        while head:
+            node = ListNode(head.val)
+            if ans:
+                node.next = ans
+                ans = node
+            else:
+                ans = node
+            head = head.next
+        return ans
 

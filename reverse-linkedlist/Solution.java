@@ -8,6 +8,7 @@ public class ListNode {
 }
 
 class Solution {
+  // Problem 1
   public ListNode reverseBetween(ListNode head, int left, int right) {
     ListNode ans = new ListNode(0);
     ListNode curr = ans;
@@ -38,4 +39,22 @@ class Solution {
 
     return ans.next;
   }
+
+
+  // Problem 2
+  public ListNode reverseList(ListNode head) {
+    ListNode ans = null;
+    while (head != null) {
+      ListNode next = new ListNode(head.val);
+      if (ans == null) {
+        ans = next;
+      } else {
+        next.next = ans;
+        ans = next;
+      }
+      head = head.next;
+    }
+    return ans;
+  }
+
 }
