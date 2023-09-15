@@ -18,4 +18,21 @@ class Solution {
       return ans;
     }
   }
+
+  // Problem 2
+  public ListNode mergeKLists(ListNode[] lists) {
+    PriorityQueue<ListNode> pq = new PriorityQueue<>((a,b) -> (a.val - b.val));
+    for (ListNode node: lists) 
+      if (node != null) pq.offer(node);
+    ListNode head = new ListNode(0);
+    ListNode curr = head;
+    while (!pq.isEmpty()) {
+      ListNode node = pq.remove();
+      if (node.next != null) pq.offer(node.next);
+      curr.next = node;
+      node.next = null;
+      curr = curr.next;
+    }
+    return head.next;
+  } 
 }

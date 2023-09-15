@@ -14,3 +14,13 @@ Return the head of the merged linked list.
 ### [Solution in Python](solution.py#L8)
 
 
+## Problem 2
+
+You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+
+Merge all the linked-lists into one sorted linked-list and return it.
+
+
+### [Link to Leetcode](https://leetcode.com/problems/merge-two-sorted-lists/)
+### [Solution in Java](Solution.java#L22)
+### [Solution in Python](solution.py#L21)
