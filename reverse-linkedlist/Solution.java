@@ -82,4 +82,18 @@ class Solution {
     }
     curr.next = null;
   }
+
+  // Problem 4
+  public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode dum = new ListNode(0, head);
+    del(head, dum , n);
+    return dum.next;
+  }
+
+  private int del(ListNode node, ListNode prev, int n) {
+    if (node == null) return 0;
+    int h = 1 + del(node.next, node, n);
+    if (h == n) prev.next = node.next;
+    return h;
+  }
 }

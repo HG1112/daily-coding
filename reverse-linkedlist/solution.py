@@ -81,3 +81,20 @@ class Solution:
                 rev = n
             i ^= 1
                 
+    # Problem 4
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        l = head
+        r = head
+        while n-1 > 0:
+            r = r.next
+            n -= 1
+        prev = None
+        while r.next:
+            r = r.next
+            prev = l
+            l = l.next
+        if prev:
+            prev.next = l.next
+        else:
+            head = head.next
+        return head

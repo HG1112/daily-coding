@@ -36,3 +36,12 @@ You may not modify the values in the list's nodes. Only nodes themselves may be 
 ### [link to leetcode](https://leetcode.com/problems/reorder-list/)
 ### [solution in java](solution.java#L60)
 ### [solution in python](solution.py#L50)
+
+## Problem 4
+
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+
+### [link to leetcode](https://leetcode.com/problems/reorder-list/)
+### [solution in java](solution.java#L86)
+### [solution in python](solution.py#L84)
