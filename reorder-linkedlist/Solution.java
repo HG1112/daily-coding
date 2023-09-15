@@ -1,4 +1,15 @@
 import java.util.*;
+class Node {
+  int val;
+  Node next;
+  Node random;
+
+  public Node(int val) {
+    this.val = val;
+    this.next = null;
+    this.random = null;
+  }
+}
 public class ListNode {
   int val;
   ListNode next;
@@ -95,5 +106,25 @@ class Solution {
     int h = 1 + del(node.next, node, n);
     if (h == n) prev.next = node.next;
     return h;
+  }
+
+  // Problem 5
+  public Node copyRandomList(Node head) {
+    Node ans = new Node(0);
+    Node curr = head;
+    Map<Node, Node> map = new HashMap<>();
+    while (curr != null) {
+      map.put(curr, new Node(curr.val));
+      curr = curr.next;
+    }
+    curr = head;
+    Node copy = ans;
+    while (curr != null) {
+      copy.next = map.get(curr);
+      copy = copy.next;
+      copy.random = map.get(curr.random);
+      curr = curr.next;
+    }
+    return ans.next;
   }
 }

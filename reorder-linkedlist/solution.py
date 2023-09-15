@@ -4,6 +4,11 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+class Node:
+    def __init__(self, val, next=None, random=None) -> None:
+        self.val = val
+        self.next = next
+        self.random = random
 class Solution:
     # Problem 1
     def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
@@ -98,3 +103,23 @@ class Solution:
         else:
             head = head.next
         return head
+
+    # Problem 5
+    def copyRandomList(self, head: Optional[Node]) -> Optional[Node]:
+        ans = Node(0)
+        copy = ans
+        curr = head
+        while curr:
+            copy.next = Node(curr.val, None, curr)
+            temp = curr
+            curr = curr.next
+            copy = copy.next
+            temp.next = copy
+        curr = ans.next
+        while curr:
+            if curr.random.random:
+                curr.random = curr.random.random.next
+            else:
+                curr.random = None
+            curr = curr.next
+        return ans.next
