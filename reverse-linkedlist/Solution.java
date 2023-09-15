@@ -57,4 +57,29 @@ class Solution {
     return ans;
   }
 
+  // Problem 3
+  public void reorderList(ListNode head) {
+    ListNode curr = head;
+    int n = 0;
+    Stack<ListNode> rev = new Stack<>();
+    while (curr != null) {
+      rev.push(curr);
+      n++;
+      curr = curr.next;
+    }
+    curr = head;
+    for (int i = 0; i < n/2; i++) {
+      ListNode node = rev.pop();
+      ListNode next = curr.next;
+      curr.next = node;
+      node.next = next;
+      curr = next;
+    }
+    if (n%2 == 1) {
+      ListNode node = rev.pop();
+      curr.next = node;
+      curr = curr.next;
+    }
+    curr.next = null;
+  }
 }
