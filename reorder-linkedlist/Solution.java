@@ -127,4 +127,29 @@ class Solution {
     }
     return ans.next;
   }
+
+  // Problem 6
+  public ListNode reverseKGroup(ListNode head, int k) {
+    if (head == null) return null;
+    ListNode curr = head;
+    int count = 0;
+    while (curr != null && count < k) {
+      curr = curr.next;
+      count++;
+    }
+    if (count < k) return head;
+    ListNode tail = reverseKGroup(curr, k);
+    ListNode ans = new ListNode(head.val);
+    ans.next = tail;
+    curr = head.next;
+    count = 1;
+    while (count < k) {
+      ListNode node = new ListNode(curr.val);
+      node.next = ans;
+      ans = node;
+      count++;
+      curr = curr.next;
+    }
+    return ans;
+  }
 }

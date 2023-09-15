@@ -67,3 +67,16 @@ Your code will only be given the head of the original linked list.
 ### [link to leetcode](https://leetcode.com/problems/reorder-list/)
 ### [solution in java](solution.java#L86)
 ### [solution in python](solution.py#L107)
+
+## Problem 6
+
+Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
+
+k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
+
+You may not alter the values in the list's nodes, only nodes themselves may be changed.
+
+
+### [link to leetcode](https://leetcode.com/problems/reverse-nodes-in-k-group/)
+### [solution in java](solution.java#L86)
+### [solution in python](solution.py#L107)

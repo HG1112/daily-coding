@@ -123,3 +123,26 @@ class Solution:
                 curr.random = None
             curr = curr.next
         return ans.next
+
+    # Problem 6
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        if not head:
+            return head
+        curr = head
+        ans = None
+        tail = None
+        for _ in range(k):
+            if curr:
+               node = ListNode(curr.val)
+               if not ans:
+                   ans = node
+                   tail = node
+               else:
+                   node.next = ans
+                   ans = node
+            else:
+                return head
+            curr = curr.next
+        tail.next = self.reverseKGroup(curr, k)
+        return ans
+        
