@@ -16,3 +16,25 @@ class Solution:
             if slow == fast:
                 return True
         return False
+
+    # Problem 2
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return None
+        slow = head
+        fast = head
+        cycle = False
+        while fast.next and fast.next.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                cycle = True
+                break
+        if not cycle:
+            return None
+        slow = head
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+        return slow
+
