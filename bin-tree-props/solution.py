@@ -44,3 +44,32 @@ class Solution:
                 return 0
         depth(root, ans)
         return ans[0]
+
+    # Problem 4
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        stack = []
+        if not p and not q:
+            return True
+        elif not p or not q:
+            return False
+        else:
+            stack.append(p)
+            stack.append(q)
+            while stack:
+                p = stack.pop()
+                q = stack.pop()
+                if p.val != q.val:
+                    return False
+                if (p.left and not q.left) or (not p.left and q.left):
+                    return False
+                elif p.left and q.left:
+                    stack.append(p.left)
+                    stack.append(q.left)
+
+                if (p.right and not q.right) or (not p.right and q.right):
+                    return False
+                elif p.right and q.right:
+                    stack.append(p.right)
+                    stack.append(q.right)
+        return True
+
