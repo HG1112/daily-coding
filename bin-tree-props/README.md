@@ -21,5 +21,14 @@ The length of a path between two nodes is represented by the number of edges bet
 
 
 ### [Link to Leetcode](https://leetcode.com/problems/diameter-of-binary-tree/)
-### [Solution in Java](Solution.java#L5)
-### [Solution in Python](solution.py#L10)
+### [Solution in Java](Solution.java#L28)
+### [Solution in Python](solution.py#L19)
+
+## Problem 3
+
+Given a binary tree, determine if it is height-balanced .
+
+
+### [Link to Leetcode](https://leetcode.com/problems/balanced-binary-tree/)
+### [Solution in Java](Solution.java#L46)
+### [Solution in Python](solution.py#L33)

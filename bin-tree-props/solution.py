@@ -29,3 +29,18 @@ class Solution:
                 return 0
         depth(root, ans)
         return ans[0]
+
+    # Problem 3
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        ans = [True]
+        def depth(node: Optional[TreeNode], ans: list[bool]) -> int:
+            if node:
+                left = depth(node.left, ans)
+                right = depth(node.right ,ans)
+                if abs(left - right) > 1:
+                    ans[0] = False
+                return 1 + max(left, right)
+            else:
+                return 0
+        depth(root, ans)
+        return ans[0]

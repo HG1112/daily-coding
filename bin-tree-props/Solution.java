@@ -42,6 +42,28 @@ class Solution {
       return Math.max(left, right) + 1;
     }
   }
+
+  // Problem 3
+  public boolean isBalanced(TreeNode root) {
+    int[] ans = depth(root);
+    return ans[1] == 1;
+  }
+
+  private int[] depth(TreeNode node) {
+    if (node == null)
+      return new int[]{1, 1};
+    else {
+      int[] ans = new int[]{0, 0};
+
+      int[] left = depth(node.left);
+      int[] right = depth(node.right);
+      if (left[1] == 1 && right[1] == 1 && Math.abs(left[0]-right[0]) <= 1) {
+        ans[0] = Math.max(left[0], right[0]) + 1;
+        ans[1] = 1;
+      }
+      return ans;
+    }
+  }
 }
 
 public class TreeNode {
