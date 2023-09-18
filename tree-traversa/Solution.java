@@ -56,6 +56,33 @@ class Solution {
     isValid(node.right, min == null ? node.val : Math.max(node.val, min), max);
   }
 
+
+  // Problem 4
+  public TreeNode buildTree(int[] preorder, int[] inorder) {
+    preStart = 0;
+    return build(preorder, preorder.length-1, inorder, 0, inorder-1);
+  }
+
+  int preStart;
+  private TreeNode build(int[] pre , int preEnd, int[] in, int inStart, int inEnd) {
+    if (inStart > inEnd || preStart > preEnd)
+      return null;
+    TreeNode ans = new TreeNode(pre[preStart]);
+    for (int idx = inStart; idx <= inEnd; idx++) {
+      if (in[idx] == ans.val) {
+        if (inStart < idx) {
+          preStart++;
+          ans.left = build(pre, preEnd, in, inStart, idx-1);
+        }
+        if (idx >= inStart && idx < inEnd) {
+          preStart++;
+          ans.right = build(pre, preEnd, in, idx+1, inEnd);
+        }
+        break;
+      }
+    }
+    return ans;
+  }
 }
 
 public class TreeNode {

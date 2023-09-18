@@ -73,4 +73,22 @@ class Solution:
                 return False
         return True
 
+    # Problem 4
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        pre_start = [0]
+        pre_end = len(preorder) -1
+        def build(preorder: list[int], inorder: list[int], in_start: int, in_end: int, pre_start: list[int], pre_end: int) -> Optional[TreeNode]:
+            if pre_start[0] > pre_end or in_start > in_end:
+                return None
+            ans = TreeNode(preorder[pre_start[0]])
+            pre_start[0] += 1
+            for idx in range(in_start, in_end+1):
+                if inorder[idx] == ans.val:
+                    if in_start < idx:
+                        ans.left = build(preorder, inorder, in_start, idx-1, pre_start, pre_end)
+                    if in_start <= idx and idx < in_end:
+                        ans.right = build(preorder, inorder, idx+1, in_end, pre_start, pre_end)
+                    break
+            return ans
+        return build(preorder, inorder, 0, len(inorder)-1, pre_start, pre_end)
 

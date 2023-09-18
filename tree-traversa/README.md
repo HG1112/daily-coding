@@ -31,3 +31,12 @@ A valid BST is defined as follows:
 ### [Solution in Java](Solution.java#L47)
 ### [Solution in Python](solution.py#L53)
 
+
+## Problem 4
+
+Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
+
+### [Link to Leetcode](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+### [Solution in Java](Solution.java#L47)
+### [Solution in Python](solution.py#L53)
+
