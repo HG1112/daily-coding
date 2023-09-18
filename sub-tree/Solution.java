@@ -66,6 +66,26 @@ class Solution {
     }
   }
 
+  // Problem 4
+  public int kthSmallest(TreeNode root, int k) {
+    ans = -1;
+    count = 0;
+    inorder(root, k);
+    return ans;
+  }
+
+  int count;
+  int ans;
+  private void inorder(TreeNode node, int k) {
+    if (node == null || count >= k) return;
+    if (count < k) inorder(node.left, k);
+    if (count < k) {
+      ans = node.val;
+      count++;
+    }
+    if (count < k) inorder(node.right, k);
+  }
+
 }
 
 public class TreeNode {

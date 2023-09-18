@@ -53,3 +53,18 @@ class Solution:
                 dfs(node.right, max(maxTill, node.val), ans)
         dfs(root, root.val, ans)
         return ans[0]
+
+    # Problem 4
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        idx = [0,0]
+        def inorder(node: Optional[TreeNode], idx: list[int]):
+            if not node:
+                return
+            inorder(node.left, idx)
+            if idx[1] < k:
+                idx[0] = node.val
+                idx[1] += 1
+            inorder(node.right, idx)
+        inorder(root, idx)
+        return idx[0]
+

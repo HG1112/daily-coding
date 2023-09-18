@@ -32,3 +32,12 @@ Return the number of good nodes in the binary tree.
 ### [Link to Leetcode](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)
 ### [Solution in Java](Solution.java#L43)
 ### [Solution in Python](solution.py#L42)
+
+## Problem 4
+
+Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+
+### [Link to Leetcode](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)
+### [Solution in Java](Solution.java#L69)
+### [Solution in Python](solution.py#L57)
+
