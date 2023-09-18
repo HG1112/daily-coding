@@ -26,6 +26,19 @@ class Solution {
     else 
       return (root.val == subRoot.val) && preorder(root.left, subRoot.left) && preorder(root.right, subRoot.right);
   }
+
+
+  // Problem 2
+  public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    int max = Math.max(p.val, q.val);
+    int min = Math.min(p.val, q.val);
+    if (root.val > max)
+      return lowestCommonAncestor(root.left, p, q);
+    else if (root.val < min) 
+      return lowestCommonAncestor(root.right, p, q);
+    else 
+      return root;
+  }
 }
 
 public class TreeNode {

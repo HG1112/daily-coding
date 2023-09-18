@@ -8,15 +8,6 @@ class TreeNode:
 class Solution:
 
     # Problem 1 
-    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        if not root:
-            return root
-        left = root.left
-        right = root.right
-        root.left = self.invertTree(right)
-        root.right = self.invertTree(left)
-        return root
-
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         from hashlib import sha256
         def sha_hash(x):
@@ -37,3 +28,14 @@ class Solution:
                 return False
             return (node.merkle == subRoot.merkle) or dfs(node.left) or dfs(node.right)
         return dfs(root)
+
+    # Problem 2
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        if root.val < p.val and root.val < q.val:
+            return self.lowestCommonAncestor(root.right, p, q)
+        elif root.val > p.val and root.val > q.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        else:
+            return root
+
+
