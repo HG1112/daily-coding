@@ -21,5 +21,14 @@ According to the definition of LCA on Wikipedia:
 
 ### [Link to Leetcode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 ### [Solution in Java](Solution.java#L34)
-### [Solution in Python](solution.py#L10)
+### [Solution in Python](solution.py#L32)
 
+## Problem 3
+
+Given a binary tree root, a node X in the tree is named good if in the path from root to X there are no nodes with a value greater than X.
+
+Return the number of good nodes in the binary tree.
+
+### [Link to Leetcode](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)
+### [Solution in Java](Solution.java#L43)
+### [Solution in Python](solution.py#L42)

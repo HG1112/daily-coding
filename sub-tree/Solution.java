@@ -39,6 +39,33 @@ class Solution {
     else 
       return root;
   }
+
+  // Problem 3
+  public int goodNodes(TreeNode root) {
+    Stack<Max> stack = new Stack<>();
+    int ans = 0;
+    if (root == null) return ans;
+    stack.push(new Max(root, root.val));
+    while (!stack.isEmpty()) {
+      Max pair = stack.pop();
+      if (pair.node.val >= pair.maxTill) ans++;
+      if (pair.node.left != null)
+        stack.push(new Max(pair.node.left, Math.max(pair.node.left.val, pair.maxTill)));
+      if (pair.node.right != null)
+        stack.push(new Max(pair.node.right, Math.max(pair.node.right.val, pair.maxTill)));
+    }
+    return ans;
+  }
+
+  private class Max {
+    TreeNode node;
+    int maxTill;
+    Max(TreeNode node, int max) {
+      this.node = node;
+      this.maxTill = max;
+    }
+  }
+
 }
 
 public class TreeNode {
@@ -53,3 +80,4 @@ public class TreeNode {
     this.right = right;
   }
 }
+

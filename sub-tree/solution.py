@@ -39,3 +39,17 @@ class Solution:
             return root
 
 
+    # Problem 3
+    def goodNodes(self, root: TreeNode) -> int:
+        ans = [0]
+        def dfs(node: TreeNode, maxTill: int, ans: list[int]) -> None:
+            if not node:
+                return
+            if node.val >= maxTill:
+                ans[0] += 1
+            if node.left:
+                dfs(node.left, max(maxTill, node.val), ans)
+            if node.right:
+                dfs(node.right, max(maxTill, node.val), ans)
+        dfs(root, root.val, ans)
+        return ans[0]
