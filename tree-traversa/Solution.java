@@ -22,6 +22,28 @@ class Solution {
     return ans;
   }
 
+  // Problem 2
+  public List<Integer> rightSideView(TreeNode root) {
+    Queue<TreeNode> level = new ArrayDeque<>();
+    List<Integer> ans = new LinkedList<>();
+    if (root == null) return ans;
+    level.add(root);
+    while (!level.isEmpty()) {
+      int n = level.size();
+      TreeNode node = null;
+      for (int i = 0; i < n-1; i++) {
+        node = level.remove();
+        if (node.left != null) level.add(node.left);
+        if (node.right != null) level.add(node.right);
+      }
+      node = level.remove();
+      ans.add(node.val);
+      if (node.left != null) level.add(node.left);
+      if (node.right != null) level.add(node.right);
+    }
+    return ans;
+  }
+
 }
 
 public class TreeNode {

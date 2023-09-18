@@ -27,3 +27,26 @@ class Solution:
             ans.append(sub)
         return ans
 
+    # Problem 2
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        ans = []
+        if not root:
+            return ans
+        level = []
+        level.append(root)
+        while level:
+            n = len(level)
+            for _ in range(n-1):
+                node = level.pop(0)
+                if node.left:
+                    level.append(node.left)
+                if node.right:
+                    level.append(node.right)
+            node = level.pop(0)
+            ans.append(node.val)
+            if node.left:
+                level.append(node.left)
+            if node.right:
+                level.append(node.right)
+        return ans
+
