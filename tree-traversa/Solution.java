@@ -83,6 +83,29 @@ class Solution {
     }
     return ans;
   }
+
+  // Problem 5
+  public int maxPathSum(TreeNode root) {
+    int[] ans = new int[]{Integer.MIN_VALUE};
+    postorder(root, ans);
+    return ans[0];
+  }
+
+  private int postorder(TreeNode node, int[] ans) {
+    if (node == null)
+      return 0;
+    int left = postorder(node.left, ans);
+    int right = postorder(node.right, ans);
+    if (ans[0] < node.val)
+      ans[0] = node.val;
+    if (ans[0] < node.val + left)
+      ans[0] = node.val + left;
+    if (ans[0] < node.val + right)
+      ans[0] = node.val + right;
+    if (ans[0] < node.val + left + right)
+      ans[0] = left + right + node.val;
+    return Math.max(Math.max(node.val + left, node.val + right), node.val);
+  }
 }
 
 public class TreeNode {

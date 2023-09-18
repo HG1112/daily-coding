@@ -37,6 +37,18 @@ A valid BST is defined as follows:
 Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
 
 ### [Link to Leetcode](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
-### [Solution in Java](Solution.java#L47)
-### [Solution in Python](solution.py#L53)
+### [Solution in Java](Solution.java#L60)
+### [Solution in Python](solution.py#L76)
 
+## Problem 5
+
+A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.
+
+The path sum of a path is the sum of the node's values in the path.
+
+Given the root of a binary tree, return the maximum path sum of any non-empty path.
+
+
+### [Link to Leetcode](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
+### [Solution in Java](Solution.java#L87)
+### [Solution in Python](solution.py#L95)

@@ -92,3 +92,16 @@ class Solution:
             return ans
         return build(preorder, inorder, 0, len(inorder)-1, pre_start, pre_end)
 
+    # Problem 5
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        self.ans = -5000
+        self.build(root)
+        return self.ans
+    def build(self, node: Optional[TreeNode]) -> int:
+        if not node:
+            return 0
+        left = self.build(node.left)
+        right = self.build(node.right)
+        self.ans = max(self.ans, node.val, node.val + left, node.val + right, node.val + left + right)
+        return max( node.val, node.val + left, node.val + right)
+            
