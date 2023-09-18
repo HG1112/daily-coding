@@ -50,3 +50,27 @@ class Solution:
                 level.append(node.right)
         return ans
 
+    # Problem 3
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        stack = []
+        if not root:
+            return True
+        stack.append(root)
+        root.maximum = None
+        root.minimum = None
+        while stack:
+            node = stack.pop()
+            if (node.maximum == None or node.maximum > node.val) and (node.minimum == None or node.minimum < node.val):
+                if node.left:
+                    node.left.maximum = min(node.val, node.maximum) if node.maximum else node.val
+                    node.left.minimum = node.minimum
+                    stack.append(node.left)
+                if node.right:
+                    node.right.minimum = max(node.val, node.minimum) if node.minimum else node.val
+                    node.right.maximum = node.maximum
+                    stack.append(node.right)
+            else:
+                return False
+        return True
+
+

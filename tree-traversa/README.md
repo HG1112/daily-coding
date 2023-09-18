@@ -17,3 +17,17 @@ Given the root of a binary tree, imagine yourself standing on the right side of 
 ### [Solution in Java](Solution.java#L25)
 ### [Solution in Python](solution.py#L30)
 
+## Problem 3
+
+Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+
+A valid BST is defined as follows:
+
+    The left subtree of a node contains only nodes with keys less than the node's key.
+    The right subtree of a node contains only nodes with keys greater than the node's key.
+    Both the left and right subtrees must also be binary search trees.
+
+### [Link to Leetcode](https://leetcode.com/problems/validate-binary-search-tree/)
+### [Solution in Java](Solution.java#L47)
+### [Solution in Python](solution.py#L53)
+

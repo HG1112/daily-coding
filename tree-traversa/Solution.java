@@ -44,6 +44,18 @@ class Solution {
     return ans;
   }
 
+  // Problem 3
+  public boolean isValidBST(TreeNode root) {
+    return isValid(root, null , null);
+  }
+
+  private boolean isValid(TreeNode node, Integer min, Integer max) {
+    if (node == null) return true;
+    if (!((min == null || min < node.val) && (max == null || node.val < max))) return false;
+    return isValid(node.left, min, max == null ? node.val : Math.min(max, node.val)) &&
+    isValid(node.right, min == null ? node.val : Math.max(node.val, min), max);
+  }
+
 }
 
 public class TreeNode {
