@@ -14,7 +14,7 @@ class Trie:
         for c in word:
             idx = ord(c) - ord('a')
             if not cursor.child[idx]:
-                cursor.child = TrieNode()
+                cursor.child[idx] = TrieNode()
             cursor = cursor.child[idx]
         cursor.end = True
 

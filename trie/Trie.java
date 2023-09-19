@@ -39,7 +39,7 @@ class Trie {
     return true;
   }
 
-  public boolean contains(String word) {
+  public boolean contains(String pre) {
     TrieNode cursor = root;
     for (int i = 0; i < pre.length(); i++) {
       char c = pre.charAt(i);
