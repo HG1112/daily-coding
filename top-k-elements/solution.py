@@ -51,3 +51,27 @@ class Solution:
         points.sort(key=lambda p: dist(p))
         return points[:k]
 
+    # Problem 4
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        def partition(nums: List[int], start: int, end: int, k: int) -> int:
+            pivot = start
+            lo = start + 1
+            hi = end
+            while lo <= hi:
+                if nums[lo] > nums[pivot]:
+                    lo += 1
+                elif nums[hi] < nums[pivot]:
+                    hi -= 1
+                else:
+                    nums[lo], nums[hi] = nums[hi], nums[lo]
+                    lo += 1
+                    hi -= 1
+            nums[pivot], nums[hi] = nums[hi], nums[pivot]
+            if hi == k-1:
+                return nums[hi]
+            elif hi < k-1:
+                return partition(nums, hi+1, end, k)
+            else:
+                return partition(nums, start, hi-1, k)
+        return partition(nums, 0, len(nums)-1, k)
+

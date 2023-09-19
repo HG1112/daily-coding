@@ -33,3 +33,15 @@ You may return the answer in any order. The answer is guaranteed to be unique (e
 ### [Solution in Java](Solution.java#L66)
 ### [Solution in Python](solution.py#L47)
 
+## Problem 4
+
+Given an integer array nums and an integer k, return the kth largest element in the array.
+
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+Can you solve it without sorting?
+
+
+### [Link to Leetcode](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+### [Solution in Java](Solution.java#L83)
+### [Solution in Python](solution.py#L54)

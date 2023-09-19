@@ -79,4 +79,36 @@ class Solution {
   private int dist(int[] p) {
     return p[0]*p[0] + p[1]*p[1];
   }
+
+  // Problem 4
+  public int findKthLargest(int[] nums, int k) {
+    return find(nums, 0, nums.length-1, k);
+  }
+  public int find(int[] nums, int start, int end, int k) {
+    int pivot = start;
+    int lo = start+1;
+    int hi = end;
+    while (lo <= hi) {
+      if (nums[lo] > nums[pivot])
+        lo++;
+      else if (nums[hi] < nums[pivot])
+        hi--;
+      else {
+        swap(nums, lo, hi);
+        lo++;
+        hi--;
+      }
+    }
+    swap(nums, pivot, hi);
+    if (hi == k-1) return nums[hi];
+    else if (hi < k-1) return find(nums, hi+1, end, k);
+    else return find(nums, start, hi-1, k);
+  }
+
+  private void swap(int[] nums, int i, int j) {
+    int temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+  }
+
 }
