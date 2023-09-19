@@ -25,3 +25,14 @@ Implement the WordDictionary class:
 ### [Link to Leetcode](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
 ### [Solution in Java](Solution.java#L5)
 ### [Solution in Python](solution.py#L8)
+
+## Problem 3
+
+Given an m x n board of characters and a list of strings words, return all words on the board.
+
+Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
+
+
+### [Link to Leetcode](https://leetcode.com/problems/word-search-ii/)
+### [Solution in Java](Solution.java#L55)
+### [Solution in Python](solution.py#L41)
