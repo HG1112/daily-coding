@@ -1,3 +1,4 @@
+import heapq
 from typing import List
 class Solution:
 
@@ -24,4 +25,19 @@ class Solution:
                         return ans
         return ans
         
+# Problem 2
+class KthLargest:
 
+    def __init__(self, k: int, nums: List[int]):
+        self.k = k
+        self.pq = []
+        heapq.heapify(self.pq)
+        for num in nums:
+            self.add(num)
+        
+
+    def add(self, val: int) -> int:
+        heapq.heappush(self.pq, val)
+        if len(self.pq) == self.k + 1:
+            heapq.heappop(self.pq)
+        return self.pq[0]

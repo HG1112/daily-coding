@@ -42,4 +42,24 @@ class Solution {
   }
 
   // Problem 2
+  class KthLargest {
+    PriorityQueue<Integer> pq;
+    int K;
+
+    public KthLargest(int k, int[] nums) {
+      pq = new PriorityQueue<>(k);
+      K = k;
+      for (int num: nums) {
+        add(num);
+      }
+    }
+
+    public int add(int val) {
+      pq.offer(val);
+      if (pq.size() == K+1) {
+        pq.remove();
+      }
+      return pq.peek();
+    }
+  }
 }
