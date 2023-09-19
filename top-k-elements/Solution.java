@@ -62,4 +62,21 @@ class Solution {
       return pq.peek();
     }
   }
+
+  // Problem 3
+  public int[][] kClosest(int[][] points, int k) {
+    PriorityQueue<int[]> pq = new PriorityQueue<>(k, (a,b) -> -(dist(a) - dist(b)));
+    for (int[] point: points) {
+      pq.offer(point);
+      if (pq.size() == k+1)
+        pq.remove();
+    }
+    int[][] ans = new int[k][2];
+    for (int i = 0; i < k; i++)
+      ans[i] = pq.remove();
+    return ans;
+  }
+  private int dist(int[] p) {
+    return p[0]*p[0] + p[1]*p[1];
+  }
 }

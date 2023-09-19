@@ -41,3 +41,13 @@ class KthLargest:
         if len(self.pq) == self.k + 1:
             heapq.heappop(self.pq)
         return self.pq[0]
+
+class Solution:
+
+    # Problem 3
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        def dist(p):
+            return p[0]**2 + p[1]**2
+        points.sort(key=lambda p: dist(p))
+        return points[:k]
+
