@@ -34,4 +34,36 @@ class Solution {
     return ans;
   }
 
+  // Problem 2
+  class MedianFinder {
+
+      PriorityQueue<Integer> left; 
+      PriorityQueue<Integer> right; 
+
+    public MedianFinder() {
+      left = new PriorityQueue<>((a, b) -> (b - a));
+      right = new PriorityQueue<>();
+    }
+
+    public void addNum(int num) {
+      if (left.isEmpty() || left.peek() >= num) {
+        left.offer(num);
+      } else if (right.isEmpty() || right.peek() <= num) {
+        right.offer(num);
+      } else {
+        left.offer(num);
+      }
+      if (left.size() > right.size() + 1)
+        right.offer(left.remove());
+      else if (right.size() > left.size())
+        left.offer(right.remove());
+    }
+
+    public double findMedian() {
+      if (left.size() > right.size()) 
+        return left.peek();
+      else 
+        return ((left.peek() + right.peek()) * 1.0)/2;
+    }
+  }
 }
