@@ -14,3 +14,26 @@ class Solution:
         return ans
 
 
+    # Problem 2
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        def gen(nums, i, acc, ans):
+            if i < 0:
+                ans.append([i for i in acc])
+                return
+            count = 0
+            for j in range(i, -1, -1):
+                if nums[i] == nums[j]:
+                    count += 1
+                else:
+                    break
+            for k in range(count+1):
+                for _ in range(k):
+                    acc.append(nums[i])
+                gen(nums, i - count, acc, ans)
+                for _ in range(k):
+                    acc.pop()
+        nums.sort()
+        acc = []
+        ans = []
+        gen(nums, len(nums)-1, acc, ans)
+        return ans

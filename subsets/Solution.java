@@ -17,4 +17,28 @@ class Solution {
     }
     return ans;
   }
+
+  // Problem 2
+  public List<List<Integer>> subsetsWithDup(int[] nums) {
+    Arrays.sort(nums);
+    LinkedList<Integer> acc = new LinkedList<>();
+    List<List<Integer>> ans = new LinkedList<>();
+    f(nums, nums.length-1, acc, ans);
+    return ans;
+  }
+
+  private void f(int[] nums, int i, LinkedList<Integer> acc, List<List<Integer>> ans) {
+    if (i < 0) {
+      ans.add(new LinkedList<Integer>(acc));
+      return;
+    }
+    int count = 0;
+    for (int j = i; j >= 0 && nums[j] == nums[i]; j--) count++;
+    for (int k = 0; k <= count; k++) {
+      for (int j = 0; j < k; j++) acc.addLast(nums[i]);
+      f(nums, i - count, acc, ans);
+      for (int j = 0; j < k; j++) acc.removeLast();
+    }
+
+  }
 }
