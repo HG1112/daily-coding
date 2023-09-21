@@ -31,3 +31,22 @@ class Solution:
         return False
 
 
+    # Problem 2
+    def letterCombinations(self, digits: str) -> List[str]:
+        letters = [ [], [], ['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i'], ['j', 'k', 'l'], ['m', 'n', 'o'], ['p', 'q', 'r', 's'], ['t', 'u', 'v'], ['w', 'x', 'y', 'z'] ]
+        def gen(digits, i, letters, acc, ans):
+            if i == len(digits):
+                copy = ''.join(c for c in acc)
+                ans.append(copy)
+                return
+            idx = ord(digits[i]) - ord('0')
+            for c in letters[idx]:
+                gen(digits, i+1, letters, acc + c, ans)
+        ans = []
+        if not digits:
+            return ans
+        gen(digits, 0, letters, "", ans)
+        return ans
+
+
+

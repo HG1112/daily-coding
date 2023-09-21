@@ -31,4 +31,35 @@ class Solution {
     vis[i][j] = false;
     return ans;
   }
+
+  // Problem 2
+  public List<String> letterCombinations(String digits) {
+    char[][] letters = {
+    {},
+    {},
+    {'a', 'b', 'c'},
+    {'d', 'e', 'f'},
+    {'g', 'h', 'i'},
+    {'j', 'k', 'l'},
+    {'m', 'n', 'o'},
+    {'p', 'q', 'r', 's'},
+    {'t', 'u', 'v'},
+    {'w', 'x', 'y', 'z'}
+    };
+    String acc = "";
+    List<String> ans = new LinkedList<>();
+    if (digits.isEmpty()) return ans;
+    f(digits, 0, letters, acc, ans);
+    return ans;
+  }
+  private void f(String digits, int i, char[][] letters, String acc, List<String> ans) {
+    if (i == digits.length()) {
+      ans.add(acc);
+      return;
+    }
+    int idx = digits.charAt(i) - '0';
+    for (char c : letters[idx]) {
+      f(digits, i+1, letters, acc + c, ans);
+    }
+  }
 }
