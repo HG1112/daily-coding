@@ -83,4 +83,23 @@ class Solution {
   }
 
 
+  // Problem 5
+  public List<List<Integer>> combinationSum(int[] candidates, int target) {
+    List<List<Integer>> ans = new LinkedList<>();
+    LinkedList<Integer> acc = new LinkedList<>();
+    f(candidates, candidates.length-1, target, acc, ans);
+    return ans;
+  }
+
+  private void f(int[] nums, int i, int target, LinkedList<Integer> acc, List<List<Integer>> ans) {
+    if (target == 0) {
+      ans.add(new LinkedList<Integer>(acc));
+      return;
+    }
+    if (i < 0 || target < 0) return;
+    acc.addLast(nums[i]);
+    f(nums, i, target - nums[i], acc, ans);
+    acc.removeLast();
+    f(nums, i-1, target, acc, ans);
+  }
 }

@@ -47,3 +47,17 @@ Notice that the solution set must not contain duplicate triplets.
 ### [Link to Leetcode](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 ### [Solution in Java](Solution.java#L55)
 ### [Solution in Python](solution.py#L43)
+
+## Problem 5
+
+Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.
+
+The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.
+
+The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
+
+
+### [Link to Leetcode](https://leetcode.com/problems/combination-sum/)
+### [Solution in Java](Solution.java#L86)
+### [Solution in Python](solution.py#L72)
+

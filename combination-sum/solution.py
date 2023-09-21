@@ -68,3 +68,21 @@ class Solution:
                 i += 1
             i += 1
         return ans
+
+    # Problem 5
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        def f(nums, i, target, acc, ans):
+            if target == 0:
+                ans.append([i for i in acc])
+                return
+            if i < 0 or target < 0:
+                return
+            acc.append(nums[i])
+            f(nums, i, target - nums[i], acc, ans)
+            acc.pop()
+            f(nums, i-1, target, acc, ans)
+        acc = []
+        ans = []
+        f(candidates, len(candidates) - 1, target, acc, ans)
+        return ans
+
