@@ -31,3 +31,23 @@ class Solution:
             if match == m:
                 return True
         return False
+
+    # Problem 2
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        def gen(nums, vis, acc, ans):
+            if len(nums) == len(acc):
+                ans.append([i for i in acc])
+                return
+            for i in range(len(vis)):
+                if vis[i] == -1:
+                    vis[i] = 1
+                    acc.append(nums[i])
+                    gen(nums, vis, acc,ans)
+                    acc.pop()
+                    vis[i] = -1
+        acc = []
+        ans = []
+        vis = [-1 for _ in range(len(nums))]
+        gen(nums, vis, acc, ans)
+        return ans
+

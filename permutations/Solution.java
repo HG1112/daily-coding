@@ -32,4 +32,31 @@ class Solution {
     }
     return false;
   }
+
+  // Problem 2
+  public List<List<Integer>> permute(int[] nums) {
+    int n = nums.length;
+    int[] vis = new int[n];
+    Arrays.fill(vis, -1);
+    LinkedList<Integer> acc = new LinkedList<>();
+    List<List<Integer>> ans = new LinkedList<>();
+    g(nums, vis, acc , ans);
+    return ans;
+  }
+
+  private void g(int[] nums, int[] vis, LinkedList<Integer> acc, List<List<Integer>> ans) {
+    if (acc.size() == nums.length) {
+      ans.add(new LinkedList<Integer>(acc));
+      return;
+    }
+    for (int i = 0;i < nums.length; i++) {
+      if (vis[i] == -1) {
+        vis[i] = 1;
+        acc.addLast(nums[i]);
+        g(nums, vis, acc, ans);
+        acc.removeLast();
+        vis[i] = -1;
+      }
+    }
+  }
 }
