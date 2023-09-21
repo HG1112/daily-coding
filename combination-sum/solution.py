@@ -86,3 +86,32 @@ class Solution:
         f(candidates, len(candidates) - 1, target, acc, ans)
         return ans
 
+    # Problem 6
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        def f(nums, i, target, acc, ans):
+            if target == 0:
+                ans.append([i for i in acc])
+            elif target < 0 or i == len(nums):
+                return
+            else:
+                count = 0
+                for j in range(i, len(nums)):
+                    if nums[i] == nums[j]:
+                        count += 1
+                    else:
+                        break
+                value = target
+                f(nums, i + count, value, acc, ans)
+                for _ in range(1, count+1):
+                    acc.append(nums[i])
+                    value -= nums[i]
+                    f(nums, i + count, value, acc, ans)
+                for _ in range(count):
+                    acc.pop()
+        candidates.sort()
+        ans = []
+        acc = []
+        f(candidates, 0, target, acc, ans)
+        return ans
+
+

@@ -102,4 +102,31 @@ class Solution {
     acc.removeLast();
     f(nums, i-1, target, acc, ans);
   }
+
+  // Problem 6
+  public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    Arrays.sort(candidates);
+    LinkedList<Integer> acc = new LinkedList<>();
+    List<List<Integer>> ans = new LinkedList<>();
+    g(candidates, 0, target, acc, ans);
+    return ans;
+  }
+
+  private void g(int[] nums, int i, int target, LinkedList<Integer> acc, List<List<Integer>> ans) {
+    if (target == 0) {
+      ans.add(new LinkedList<>(acc));
+      return;
+    }
+    if (i == nums.length || target < 0) return;
+    int count = 0;
+    for (int j = i; j < nums.length && nums[i] == nums[j]; j++) count++;
+    int value = target;
+    g(nums, i + count, value ,acc, ans);
+    for (int k = 1; k <= count; k++) {
+      acc.addLast(nums[i]);
+      value -= nums[i];
+      g(nums, i + count, value ,acc, ans);
+    }
+    for (int j = 1; j <= count; j++) acc.removeLast();
+  }
 }
