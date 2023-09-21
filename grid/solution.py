@@ -49,4 +49,33 @@ class Solution:
         return ans
 
 
+    # Problem 3
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        board = [['.' for _ in range(n)] for _ in range(n)]
+        col = [False for _ in range(n)]
+        pos = [False for _ in range(2*n - 1)]
+        neg = [False for _ in range(2*n - 1)]
+        def gen(board, i, col, pos, neg, ans):
+            n = len(board)
+            if i == n:
+                ans.append([''.join(row) for row in board])
+                return
+            for j in range(n):
+                if col[j] or pos[i-j + (n-1)] or neg[i+j]:
+                    continue
+                col[j] = True
+                pos[i-j+(n-1)] = True
+                neg[i+j] = True
+                board[i][j] = 'Q'
+                gen(board, i+1, col, pos, neg, ans)
+                board[i][j] = '.'
+                col[j] = False
+                pos[i-j+(n-1)] = False
+                neg[i+j] = False
+        ans = []
+        gen(board, 0, col, pos, neg, ans)
+        return ans
+
+
+
 

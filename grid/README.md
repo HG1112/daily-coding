@@ -12,10 +12,23 @@ The word can be constructed from letters of sequentially adjacent cells, where a
 
 ## Problem 2
 
-Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
+given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. return the answer in any order.
 
-A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+a mapping of digits to letters (just like on the telephone buttons) is given below. note that 1 does not map to any letters.
 
-### [Link to Leetcode](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
-### [Solution in Java](Solution.java#L35)
-### [Solution in Python](solution.py#L34)
+### [link to leetcode](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+### [solution in java](solution.java#l35)
+### [solution in python](solution.py#l34)
+
+## Problem 3
+
+The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.
+
+Given an integer n, return all distinct solutions to the n-queens puzzle. You may return the answer in any order.
+
+Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space, respectively.
+
+### [link to leetcode](https://leetcode.com/problems/n-queens/)
+### [solution in java](solution.java#l35)
+### [solution in python](solution.py#l34)
+

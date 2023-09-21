@@ -62,4 +62,42 @@ class Solution {
       f(digits, i+1, letters, acc + c, ans);
     }
   }
+
+  // Problem 3
+  public List<List<String>> solveNQueens(int n) {
+    List<List<String>> ans = new LinkedList<>();
+    char[][] board = new char[n][n];
+    for (char[] c: board) Arrays.fill(c, '.');
+    boolean[] col = new boolean[n];
+    boolean[] pos = new boolean[2*n -1];
+    boolean[] neg = new boolean[2*n -1];
+    g(board, 0, col, pos, neg, ans);
+    return ans;
+  }
+
+  private void g(char[][] board, int i, boolean[] col, boolean[] pos, boolean[] neg, List<List<String>> ans) {
+    int n = board.length;
+    if (i == n) {
+      List<String> acc = new LinkedList<>();
+      for (char[] c: board) acc.add(new String(c));
+      ans.add(acc);
+      return;
+    }
+    for (int j = 0; j < n; j++) {
+      if (col[j]) continue;
+      if (pos[i-j+(n-1)]) continue;
+      if (neg[i+j]) continue;
+      col[j] = true;
+      pos[i-j+(n-1)] = true;
+      neg[i+j] = true;
+      board[i][j] = 'Q';
+      g(board, i+1, col, pos, neg, ans);
+      col[j] = false;
+      pos[i-j+(n-1)] = false;
+      neg[i+j] = false;
+      board[i][j] = '.';
+    }
+  }
 }
+
+
