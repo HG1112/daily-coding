@@ -29,5 +29,32 @@ class Solution:
                     ans.append([s[:i]] + n)
         return ans
 
+    # Problem 3
+    def longestPalindrome(self, s: str) -> str:
+        n = len(s)
+        R = 0
+        L = 0
+        for i in range(n):
+            l = i
+            r = i
+            while l-1 >=0 and r+1 < n and s[l-1] == s[r+1]:
+                l -= 1
+                r += 1
+            if (R - L + 1) <= (r - l + 1):
+                R = r
+                L = l
+        for i in range(n-1):
+            l = i
+            r = i+1
+            if s[l] != s[r]:
+                continue
+            while l-1 >=0 and r+1 < n and s[l-1] == s[r+1]:
+                l -= 1
+                r += 1
+            if (R - L + 1) <= (r - l + 1):
+                R = r
+                L = l
+        return s[L: R+1]
+
         
 

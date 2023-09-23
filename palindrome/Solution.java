@@ -42,4 +42,33 @@ class Solution {
       }
     }
   }
+
+  // Problem 3
+  public String longestPalindrome(String s) {
+    int ansL = 0, ansR = 0;
+    int n = s.length();
+    for (int i = 0; i < n; i++) {
+      int l = i, r = i;
+      while (l-1 >= 0 && r+1 < n && s.charAt(l-1) == s.charAt(r+1)) {
+        l--; r++;
+      }
+      if ((ansR - ansL + 1) <= (r-l+1)) {
+        ansR = r;
+        ansL = l;
+      }
+    }
+    for (int i = 0; i < n-1; i++) {
+      int l = i, r = i+1;
+      if (s.charAt(l) != s.charAt(r)) continue;
+      while (l-1 >= 0 && r+1 < n && s.charAt(l-1) == s.charAt(r+1)) {
+        l--; r++;
+      }
+      if ((ansR - ansL + 1) <= (r-l+1)) {
+        ansR = r;
+        ansL = l;
+      }
+    }
+    return s.substring(ansL, ansR+1);
+  }
+
 }

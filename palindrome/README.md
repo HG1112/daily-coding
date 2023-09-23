@@ -14,7 +14,14 @@ Given a string s, return true if it is a palindrome, or false otherwise.
 
 Given a string s, partition s such that every substring of the partition is a palindrome . Return all possible palindrome partitioning of s.
 
-
 ### [Link to Leetcode](https://leetcode.com/problems/valid-palindrome/)
 ### [Solution in Java](Solution.java#L24)
 ### [Solution in Python](solution.py#L21)
+
+## Problem 3
+
+Given a string s, return the longest palindromic substring in s.
+
+### [Link to Leetcode](https://leetcode.com/problems/longest-palindromic-substring/)
+### [Solution in Java](Solution.java#L46)
+### [Solution in Python](solution.py#L32)
