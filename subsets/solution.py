@@ -37,3 +37,26 @@ class Solution:
         ans = []
         gen(nums, len(nums)-1, acc, ans)
         return ans
+
+    # Problem 3
+    def canPartition(self, nums: List[int]) -> bool:
+        n = len(nums)
+        total = sum(nums)
+        if total % 2 != 0:
+            return False
+        target = total // 2
+        dp = [[False for _ in range(target+1)] for _ in range(n)]
+        for val in range(target+1):
+            for i in range(n):
+                if val == 0:
+                    dp[i][val] = True
+                elif i == 0:
+                    dp[i][val] = nums[i] == val
+                else:
+                    dp[i][val] = dp[i][val] or dp[i-1][val]
+                    if val >= nums[i]:
+                        dp[i][val] = dp[i][val] or dp[i-1][val - nums[i]]
+        return dp[n-1][target]
+
+
+

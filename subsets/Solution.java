@@ -41,4 +41,30 @@ class Solution {
     }
 
   }
+
+  // Problem 3
+  public boolean canPartition(int[] nums) {
+    int n = nums.length;
+    int sum = 0;
+    for (int num: nums) sum += num;
+    if (sum % 2 != 0) return false;
+    int target = sum / 2;
+    int[][] dp = new int[n][target+1];
+    for (int[] d: dp) Arrays.fill(d, -1);
+    return g(nums, n-1, target, dp);
+  }
+  private boolean g(int[] nums, int i, int target, int[][] dp) {
+    if (target == 0)
+      return true;
+    if (i < 0)
+      return false;
+    if (dp[i][target] != -1) return dp[i][target] == 1;
+    boolean noTake = g(nums, i-1, target, dp);
+    boolean take = false;
+    if(target >= nums[i])
+      take = take || g(nums, i-1, target - nums[i], dp);
+    boolean ans = take || noTake;
+    dp[i][target] = ans ? 1 : 0;
+    return ans;
+  }
 }
