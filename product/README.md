@@ -13,3 +13,16 @@ You must write an algorithm that runs in O(n) time and without using the divisio
 ### [Solution in Python](solution.py#L3)
 
 
+## Problem 2
+
+Given an integer array nums, find a subarray that has the largest product, and return the product.
+
+The test cases are generated so that the answer will fit in a 32-bit integer.
+
+### [Link to Leetcode](https://leetcode.com/problems/maximum-product-subarray/)
+### [Solution in Java](Solution.java#L31)
+### [Solution in Python](solution.py#L19)
+
+
+
+
