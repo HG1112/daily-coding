@@ -71,4 +71,31 @@ class Solution {
     return s.substring(ansL, ansR+1);
   }
 
+  // Problem 4
+  public int countSubstrings(String s) {
+    int n = s.length();
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+      int l = i;
+      int r = i;
+      count++;
+      while (l-1 >= 0 && r+1 < n && s.charAt(l-1) == s.charAt(r+1)) {
+        l--;
+        r++;
+        count++;
+      }
+    }
+    for (int i = 0; i < n-1; i++) {
+      int l = i;
+      int r = i+1;
+      if (s.charAt(l) != s.charAt(r)) continue;
+      count++;
+      while (l-1 >= 0 && r+1 < n && s.charAt(l-1) == s.charAt(r+1)) {
+        l--;
+        r++;
+        count++;
+      }
+    }
+    return count;
+  }
 }

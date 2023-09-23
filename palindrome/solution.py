@@ -56,5 +56,30 @@ class Solution:
                 L = l
         return s[L: R+1]
 
+    # Problem 4
+    def countSubstrings(self, s: str) -> int:
+        n = len(s)
+        count = 0
+        for i in range(n):
+            l = i
+            r = i
+            count += 1
+            while l-1 >= 0 and r+1 < n and s[l-1] == s[r+1]:
+                l -= 1
+                r += 1
+                count += 1
+        for i in range(n-1):
+            l = i
+            r = i+1
+            if s[l] != s[r]:
+                continue
+            count += 1
+            while l-1 >= 0 and r+1 < n and s[l-1] == s[r+1]:
+                l -= 1
+                r += 1
+                count += 1
+        return count
+
+
         
 

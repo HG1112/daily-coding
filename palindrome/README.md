@@ -25,3 +25,18 @@ Given a string s, return the longest palindromic substring in s.
 ### [Link to Leetcode](https://leetcode.com/problems/longest-palindromic-substring/)
 ### [Solution in Java](Solution.java#L46)
 ### [Solution in Python](solution.py#L32)
+
+## Problem 4
+
+Given a string s, return the number of palindromic substrings in it.
+
+A string is a palindrome when it reads the same backward as forward.
+
+A substring is a contiguous sequence of characters within the string.
+
+### [Link to Leetcode](https://leetcode.com/problems/palindromic-substrings/)
+### [Solution in Java](Solution.java#L74)
+### [Solution in Python](solution.py#L59)
+
+
+
