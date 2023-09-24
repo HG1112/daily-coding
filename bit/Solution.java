@@ -56,4 +56,22 @@ class Solution {
   public int getSum(int a, int b) {
     return b == 0 ? a : getSum(a^b, (a&b) << 1);
   }
+
+  // Problem 7
+  public int reverse(int x) {
+    int ans = 0;
+    while (x != 0) {
+      if (x > 0) {
+        if (ans > Integer.MAX_VALUE/10)
+          return 0;
+      } else {
+        if (ans < Integer.MIN_VALUE/10)
+          return 0;
+      }
+      ans = 10*ans + (x%10);
+      x = x / 10;
+    }
+    return ans;
+
+  }
 }

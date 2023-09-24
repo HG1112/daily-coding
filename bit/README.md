@@ -84,3 +84,14 @@ Given two integers a and b, return the sum of the two integers without using the
 ### [Solution in Python](solution.py#L47)
 
 
+## Problem 7
+
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+### [Link to Leetcode](https://leetcode.com/problems/reverse-integer/)
+### [Solution in Java](Solution.java#L60)
+### [Solution in Python](solution.py#L70)
+
+

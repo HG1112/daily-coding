@@ -67,4 +67,19 @@ class Solution:
                     carry = 0;
         return ans;
 
+    # Problem 7
+    def reverse(self, x: int) -> int:
+        import math
+        ans = 0
+        MAX = 2**31-1
+        MIN = -2**31
+        while x:
+            digit = int(math.fmod(x, 10))
+            x = int(x / 10)
+            if ans > MAX//10 or (ans == MAX//10 and digit > MAX % 10):
+                return 0
+            if ans < MIN//10 or (ans == MIN//10 and digit < MIN % 10):
+                return 0
+            ans = (10*ans) + digit
+        return ans
 
