@@ -44,3 +44,35 @@ ans\[i\] is the number of 1's in the binary representation of i.
 ### [Solution in Python](solution.py#L18)
 
 
+## Problem 4
+
+Reverse bits of a given 32 bits unsigned integer.
+
+Note:
+
+    Note that in some languages, such as Java, there is no unsigned integer type.
+    
+    In this case, both input and output will be given as a signed integer type. 
+
+    They should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
+
+    In Java, the compiler represents the signed integers using 2's complement notation. Therefore, in Example 2 above, the input represents the signed integer -3 and the output represents the signed integer -1073741825.
+
+
+### [Link to Leetcode](https://leetcode.com/problems/reverse-bits/)
+### [Solution in Java](Solution.java#L29)
+### [Solution in Python](solution.py#L25)
+
+
+## Problem 5
+
+Given an array nums containing n distinct numbers in the range \[0, n\], 
+
+return the only number in the range that is missing from the array.
+
+
+### [Link to Leetcode](https://leetcode.com/problems/missing-number/)
+### [Solution in Java](Solution.java#L44)
+### [Solution in Python](solution.py#L37)
+
+

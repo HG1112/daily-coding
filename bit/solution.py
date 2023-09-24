@@ -22,4 +22,25 @@ class Solution:
             ans[i] = ans[i >> 1] + (i & 1)
         return ans
 
+    # Problem4
+    def reverseBits(self, n: int) -> int:
+        l = 0
+        r = 31
+        ans = 0
+        while l <= r:
+            ans |= (((n >> l) & 1) << r)
+            ans |= (((n >> r) & 1) << l)
+            l += 1
+            r -= 1
+        return ans
+
+    # Problem 5
+    def missingNumber(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for i in range(1, n+1):
+            ans = ans ^ nums[i-1]
+            ans = ans ^ i
+        return ans
+
 
