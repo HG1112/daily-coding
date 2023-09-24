@@ -70,9 +70,17 @@ Given an array nums containing n distinct numbers in the range \[0, n\],
 
 return the only number in the range that is missing from the array.
 
-
 ### [Link to Leetcode](https://leetcode.com/problems/missing-number/)
 ### [Solution in Java](Solution.java#L44)
 ### [Solution in Python](solution.py#L37)
+
+
+## Problem 6
+
+Given two integers a and b, return the sum of the two integers without using the operators + and -.
+
+### [Link to Leetcode](https://leetcode.com/problems/sum-of-two-integers/)
+### [Solution in Java](Solution.java#L55)
+### [Solution in Python](solution.py#L47)
 
 

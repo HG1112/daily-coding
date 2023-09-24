@@ -13,7 +13,7 @@ class Solution {
   public int hammingWeight(int n) {
     int ans = 0;
     for (int i = 0; i < 32; i++) 
-      ans += ((n >> i) & 1);
+    ans += ((n >> i) & 1);
     return ans;
   }
 
@@ -50,5 +50,10 @@ class Solution {
       ans = ans ^ i;
     }
     return ans;
+  }
+
+  // Problem 6
+  public int getSum(int a, int b) {
+    return b == 0 ? a : getSum(a^b, (a&b) << 1);
   }
 }

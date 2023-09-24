@@ -44,3 +44,27 @@ class Solution:
         return ans
 
 
+    # Problem 6
+    def getSum(self, a: int, b: int) -> int:
+        ans = 0;
+        carry = 0;
+        for i in range(32):
+            left = (a >> i) & 1;
+            right = (b >> i) & 1;
+            if ((left | right) == 0) :
+                if (carry == 1):
+                    ans = ans | (1 << i);
+                carry = 0
+            elif ((left & right) == 1):
+                if (carry == 1):
+                    ans = ans | (1 << i);
+                carry = 1
+            elif ((left | right) == 1) :
+                if (carry == 1):
+                    carry = 1;
+                else:
+                    ans = ans | (1 << i);
+                    carry = 0;
+        return ans;
+
+
