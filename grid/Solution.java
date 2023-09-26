@@ -155,6 +155,57 @@ class Solution {
     }
     return ans;
   }
+
+  // Problem 6
+  public List<List<Integer>> pacificAtlantic(int[][] heights) {
+    List<int[]> pacific = new LinkedList<>();
+    List<int[]> atlantic = new LinkedList<>();
+    int m = heights.length;
+    int n = heights[0].length;
+    for (int i = 0; i < m; i++) {
+      pacific.add(new int[]{i, 0});
+      atlantc.add(new int[]{i, n-1});
+    }
+    for (int j = 0; j < n; j++) {
+      pacific.add(new int[]{0, j});
+      atlantc.add(new int[]{m-1, j});
+    }
+    boolean[][] p = new boolean[m][n];
+    boolean[][] a = new boolean[m][n];
+    ocean(pacific, p, heights);
+    ocean(atlantc, a, heights);
+    List<List<Integer>> ans = new LinkedList<>();
+    for (int i = 0; i < m; i++) {
+      for (int j = 0; j < n; j++) {
+        if (p[i][j] && a[i][j]) {
+          ans.add(Arrays.asList(i,j));
+        }
+      }
+    }
+    return ans;
+  }
+  private void ocean(List<int[]> start,boolean[][] vis, int[][] grid) {
+    int m = grid.length;
+    int n = grid[0].length;
+    Stack<int[]> dfs = new Stack<>();
+    dfs.addAll(start);
+    for (int[] coord: start) vis[coord[0]][coord[1]] = true;
+    int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+    while (!dfs.isEmpty()) {
+      int[] coord = dfs.pop();
+      int i = coord[0];
+      int j = coord[1];
+      for (int[] di: directions) {
+        int x = i + di[0];
+        int y = j + di[1];
+        if (!(0 <= x && x < m && 0 <= y && y < n)) continue;
+        if (vis[x][y]) continue;
+        if (grid[i][j] > grid[x][y]) continue;
+        vis[x][y] = true;
+        dfs.push(new int[]{x, y});
+      }
+    }
+  }
 }
 
 

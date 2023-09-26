@@ -125,4 +125,47 @@ class Solution:
                     ans = max(ans, count(i, j, grid))
         return ans
 
+    # Problem 6
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        def ocean(stack, vis, grid):
+            directions = [[1,0],[0,1],[-1,0],[0,-1]]
+            m = len(grid)
+            n = len(grid[0])
+            for i, j in stack:
+                vis[i][j] = True
+            while stack:
+                i, j = stack.pop()
+                for di in directions:
+                    x = i + di[0]
+                    y = j + di[1]
+                    if not (0 <= x and x < m and 0 <= y and y < n):
+                        continue
+                    if vis[x][y]:
+                        continue
+                    if grid[x][y] < grid[i][j]:
+                        continue
+                    vis[x][y] = True
+                    stack.append([x,y])
+        m = len(heights)
+        n = len(heights[0])
+        pacific = []
+        atlantic = []
+        for i in range(m):
+            for j in range(n):
+                if i == 0 or j == 0:
+                    pacific.append([i, j])
+                if i == m-1 or j == n-1:
+                    atlantic.append([i, j])
+        p = [[False for _ in range(n)]  for _ in range(m)]
+        a = [[False for _ in range(n)]  for _ in range(m)]
+        ocean(pacific, p, heights)
+        ocean(atlantic, a, heights)
+        ans = []
+        for i in range(m):
+            for j in range(n):
+                if p[i][j] and a[i][j]:
+                    ans.append([i,j])
+        return ans
+                
+
 
