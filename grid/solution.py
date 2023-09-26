@@ -78,4 +78,27 @@ class Solution:
 
 
 
+    # Problem 4
+    def numIslands(self, grid: List[List[str]]) -> int:
+        def dfs(i, j, grid):
+            m = len(grid)
+            n = len(grid[0])
+            grid[i][j] = '0'
+            directions = [[-1, 0], [0, -1], [1,0], [0,1]]
+            for di in directions:
+                x = i + di[0]
+                y = j + di[1]
+                if not (0 <= x and x < m and 0 <= y and y < n):
+                    continue
+                if grid[x][y] == '0':
+                    continue
+                dfs(x, y, grid)
+        count = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == '1':
+                    count += 1
+                    dfs(i, j, grid)
+        return count
+
 
