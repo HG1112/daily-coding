@@ -101,4 +101,28 @@ class Solution:
                     dfs(i, j, grid)
         return count
 
+    # Problem 5
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        def count(i, j, grid):
+            directions = [[1,0],[0,1],[-1,0],[0,-1]]
+            grid[i][j] = 0
+            ans = 1
+            for di in directions:
+                x = i + di[0]
+                y = j + di[1]
+                if not (0 <= x and x < m and 0 <= y and y < n):
+                    continue
+                if grid[x][y] == 0:
+                    continue
+                ans += count(x, y, grid)
+            return ans
+        ans = 0
+        m = len(grid)
+        n = len(grid[0])
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    ans = max(ans, count(i, j, grid))
+        return ans
+
 

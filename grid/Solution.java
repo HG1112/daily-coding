@@ -127,6 +127,34 @@ class Solution {
       dfs(x, y , grid);
     }
   }
+
+  // Problem 5
+  public int maxAreaOfIsland(int[][] grid) {
+    int ans = 0;
+    for (int i = 0; i < grid.length; i++) {
+      for (int j = 0; j < grid[0].length; j++) {
+        if (grid[i][j] == 1) {
+          ans = Math.max(ans, count(i, j, grid));
+        }
+      }
+    }
+    return ans;
+  }
+  private int count(int i, int j, int[][] grid) {
+    grid[i][j] = 0;
+    int ans = 1;
+    int[][] directions = {{1,0},{0,1},{-1,0},{0,-1}};
+    int m = grid.length;
+    int n = grid[0].length;
+    for (int[] di: directions) {
+      int x = i + di[0];
+      int y = j + di[1];
+      if (!(0 <= x && x < m && 0 <= y && y < n)) continue;
+      if (grid[x][y] == 0) continue;
+      ans += count(x, y, grid);
+    }
+    return ans;
+  }
 }
 
 
