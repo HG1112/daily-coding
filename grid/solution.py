@@ -167,5 +167,43 @@ class Solution:
                     ans.append([i,j])
         return ans
                 
+    
+    # Problem 7
+    def solve(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        def fill(i, j, vis, board):
+            vis[i][j] = True
+            dir = [[1,0],[0,1],[-1,0],[0,-1]]
+            for di in dir:
+                x = i + di[0]
+                y = j + di[1]
+                if not (0 <= x and x < m and 0 <= y and y < n):
+                    continue
+                if vis[x][y]:
+                    continue
+                if board[i][j] == 'X':
+                    continue
+                fill(x,y,vis, board)
 
+        m = len(board)
+        n = len(board[0])
+        vis = [[False for _ in range(n)] for _ in range(m)]
+        for i in range(m):
+            if board[i][0] == 'O':
+                fill(i, 0, vis, board)
+            if board[i][n-1] == 'O':
+                fill(i, n-1, vis, board)
+        for j in range(n):
+            if board[0][j] == 'O':
+                fill(0, j, vis, board)
+            if board[m-1][j] == 'O':
+                fill(m-1, j, vis, board)
+        for i in range(m):
+            for j in range(n):
+                if not vis[i][j]:
+                    board[i][j] = 'X'
+
+    
 

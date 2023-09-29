@@ -206,6 +206,48 @@ class Solution {
       }
     }
   }
+
+  // Problem 7
+  public void solve(char[][] board) {
+    int m = board.length;
+    int n = board[0].length;
+    boolean[][] vis = new boolean[m][n];
+    for (int i = 0;i < m; i++) {
+      if (!vis[i][0] && board[i][0] == 'O') {
+        fill(i, 0, vis, board);
+      }
+      if (!vis[i][n-1] && board[i][n-1] == 'O') {
+        fill(i, n-1, vis, board);
+      }
+    }
+    for (int j = 0; j < n-1; j++) {
+      if (!vis[0][j] && board[0][j] == 'O') {
+        fill(0, j, vis, board);
+      }
+      if (!vis[m-1][j] && board[m-1][j] == 'O') {
+        fill(m-1, j, vis, board);
+      }
+    }
+    for (int i = 0; i < m; i++) {
+      for (int j = 0; j < n; j++) {
+        if (!vis[i][j]) board[i][j] = 'X';
+      }
+    }
+  }
+  private void fill(int i, int j, boolean[][] vis, char[][] board) {
+    int[][] directions = {{1,0}, {0, 1}, {-1, 0}, {0, -1}};
+    int m = board.length;
+    int n = board[0].length;
+    vis[i][j] = true;
+    for (int[] di: directions) {
+      int x = i + di[0];
+      int y = j + di[1];
+      if (!(0 <= x && x < m && 0 <= y && y < n)) continue;
+      if (vis[x][y]) continue;
+      if (board[x][y] == 'X') continue;
+      fill(x,y,vis,board);
+    }
+  }
 }
 
 

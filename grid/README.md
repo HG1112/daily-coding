@@ -76,4 +76,16 @@ Return a 2D list of grid coordinates result where result\[i\] = \[ri, ci\] denot
 ### [solution in python](solution.py#L128)
 
 
+## Problem 7
+
+Given an m x n matrix board containing 'X' and 'O', capture all regions that are 4-directionally surrounded by 'X'.
+
+A region is captured by flipping all 'O's into 'X's in that surrounded region.
+
+### [link to leetcode](https://leetcode.com/problems/surrounded-regions/)
+### [solution in java](solution.java#L210)
+### [solution in python](solution.py#L171)
+
+
+
 
