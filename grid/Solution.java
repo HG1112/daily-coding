@@ -248,6 +248,45 @@ class Solution {
       fill(x,y,vis,board);
     }
   }
+
+  // Problem 8
+  public int orangesRotting(int[][] grid) {
+    Queue<int[]> level = new ArrayDeque<>();
+    int m = grid.length;
+    int n = grid[0].length;
+    int count = 0;
+    for (int i = 0; i < m; i++) {
+      for (int j = 0; j < n; j++) {
+        if (grid[i][j] == 2) {
+          level.offer(new int[]{i, j});
+        } else if (grid[i][j] == 1) {
+          count++;
+        }
+      }
+    }
+    int[][] directions = {{1,0}, {0,1}, {-1, 0}, {0,-1}};
+    int time = 0;
+    while (!level.isEmpty()) {
+      int K = level.size();
+      for (int k = 0; k < K; k++) {
+        int[] arr = level.remove();
+        int i = arr[0];
+        int j = arr[1];
+        for (int[] di: directions) {
+          int x = i + di[0];
+          int y = j + di[1];
+          if (!(0 <= x && x < m && 0 <= y && y < n)) continue;
+          if (grid[x][y] == 0) continue;
+          if (grid[x][y] == 2) continue;
+          level.offer(new int[]{x,y});
+          grid[x][y] = 2;
+          count--;
+        }
+      }
+      if (level.size() > 0) time++;
+    }
+    return count == 0 ? time : -1;
+  }
 }
 
 

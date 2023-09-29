@@ -206,4 +206,36 @@ class Solution:
                     board[i][j] = 'X'
 
     
+    # Problem 8
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        m = len(grid)
+        n = len(grid[0])
+        count = 0
+        time = 0
+        level = []
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 2:
+                    level.append([i,j])
+                elif grid[i][j] == 1:
+                    count += 1
+        directions = [[1,0],[0,1],[-1,0],[0,-1]]
+        while level:
+            k = len(level)
+            for _ in range(k):
+                i, j = level.pop(0)
+                for di in directions:
+                    x = i + di[0]
+                    y = j + di[1]
+                    if not (0 <= x and x < m and 0 <= y and y < n):
+                        continue
+                    if grid[x][y] == 2 or grid[x][y] == 0:
+                        continue
+                    grid[x][y] = 2
+                    count -= 1
+                    level.append([x,y])
+
+            if level:
+                time += 1
+        return -1 if count != 0 else time
 
