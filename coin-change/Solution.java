@@ -9,7 +9,7 @@ class Solution {
     dp[0] = 0;
     for (int i = 1; i <= amount; i++) {
       for (int coin: denomination) {
-        if (i >= coin && dp[i-coin] > 0) {
+        if (i >= coin && dp[i-coin] >= 0) {
           if (dp[i] == -1) 
             dp[i] = dp[i-coin] + 1;
           else
@@ -17,7 +17,7 @@ class Solution {
         }
       }
     }
-    return dp[i] == Integer.MAX_VALUE ? -1 : dp[i];
+    return dp[amount];
   }
 
 
