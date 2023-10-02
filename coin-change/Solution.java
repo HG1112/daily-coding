@@ -15,8 +15,8 @@ class Solution {
           else
             dp[i] = Math.min(dp[i-coin] + 1, dp[i]);
         }
-      }
-    }
+      }aCountcoutn = new HashMap<>();
+    for (char c : a.toCharArray()) aCountcoutn.put(c, aCountcoutn
     return dp[amount];
   }
 
