@@ -30,4 +30,25 @@ class Solution {
     }
     return ans;
   }
+
+  // Problem 3
+  public int change(int amount, int[] coins) {
+    int n = coins.length;
+    int[][] dp = new int[amount+1][n];
+    for (int[] d: dp) Arrays.fill(d, -1);
+    return f(amount, coins, n-1, dp);
+  }
+
+  private int f(int amount, int[] coins, int i, int[][] dp) {
+    if (amount == 0)
+      return 1;
+    if (i < 0) 
+      return 0;
+    if (dp[amount][i] != -1) return dp[amount][i];
+    int ans = 0;
+    if (amount >= coins[i])
+      ans += f(amount- coins[i], coins, i, dp);
+    ans += f(amount, coins, i-1, dp);
+    return dp[amount][i] = ans;
+  }
 }

@@ -29,3 +29,18 @@ Write a function that, given n, returns the number of rounds you'd expect to pla
 ### [Solution in Java](Solution.java#L25)
 ### [Solution in Python](solution.py#L3)
 
+## Problem 3
+
+You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
+
+Return the number of combinations that make up that amount. If that amount of money cannot be made up by any combination of the coins, return 0.
+
+You may assume that you have an infinite number of each kind of coin.
+
+The answer is guaranteed to fit into a signed 32-bit integer.
+
+
+### [Link to Leetcode](https://leetcode.com/problems/coin-change-ii)
+### [Solution in Java](Solution.java#L35)
+### [Solution in Python](solution.py#L24)
+

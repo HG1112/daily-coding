@@ -20,3 +20,23 @@ class Solution:
             ans += 1
             n = n >> 1
         return ans
+
+    # Problem 3
+    def change(self, amount: int, coins: List[int]) -> int:
+        def f(amount, i, coins, dp):
+            if amount == 0:
+                return 1
+            if i < 0:
+                return 0
+            if dp[amount][i] != -1:
+                return dp[amount][i]
+            ans = 0
+            if amount >= coins[i]:
+                ans += f(amount - coins[i], i, coins, dp)
+            ans += f(amount, i-1, coins, dp)
+            dp[amount][i] = ans
+            return ans
+        dp = [[-1 for _ in range(len(coins))] for _ in range(amount+1)]
+        return f(amount, len(coins)-1, coins, dp)
+
+
